@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAW Training Studio</title>
+    <link rel="stylesheet" href="/css/daw.css">
+</head>
+<body>
+    <div class="daw-container">
+        <!-- Header -->
+        <header class="daw-header">
+            <div class="header-left">
+                <h1>DAW Training Studio</h1>
+                <div class="project-info">
+                    <span id="project-name">Untitled Project</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="transport-controls">
+                    <button id="rewind-btn" class="transport-btn" title="Rewind">⏮</button>
+                    <button id="play-btn" class="transport-btn primary" title="Play">▶</button>
+                    <button id="pause-btn" class="transport-btn" title="Pause">⏸</button>
+                    <button id="stop-btn" class="transport-btn" title="Stop">⏹</button>
+                    <button id="record-btn" class="transport-btn record" title="Record">⏺</button>
+                </div>
+                <div class="tempo-control">
+                    <label>BPM: <input type="number" id="tempo-input" value="120" min="40" max="240"></label>
+                    <span id="time-display">00:00:000</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button id="tutorial-btn" class="btn-secondary">📚 Tutorials</button>
+                <button id="new-project-btn" class="btn-secondary">New Project</button>
+                <button id="save-btn" class="btn-primary">💾 Save</button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="daw-main">
+            <!-- Sidebar - Track List -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h3>Tracks</h3>
+                    <button id="add-track-btn" class="btn-add">+ Add Track</button>
+                </div>
+                <div id="track-list" class="track-list">
+                    <!-- Tracks will be dynamically added here -->
+                </div>
+            </aside>
+
+            <!-- Main Workspace -->
+            <main class="workspace">
+                <div class="timeline-header">
+                    <div class="timeline-ruler" id="timeline-ruler">
+                        <!-- Timeline markers -->
+                    </div>
+                </div>
+                <div class="timeline-tracks" id="timeline-tracks">
+                    <!-- Track lanes will be displayed here -->
+                </div>
+            </main>
+
+            <!-- Effects Panel -->
+            <aside class="effects-panel">
+                <h3>Effects & Mixer</h3>
+                <div id="effects-controls">
+                    <div class="effect-section">
+                        <h4>Master Volume</h4>
+                        <input type="range" id="master-volume" min="0" max="100" value="80">
+                        <span id="master-volume-value">80%</span>
+                    </div>
+
+                    <div class="effect-section">
+                        <h4>Reverb</h4>
+                        <label>
+                            <input type="checkbox" id="reverb-toggle"> Enable
+                        </label>
+                        <label>Mix: <input type="range" id="reverb-mix" min="0" max="100" value="30"></label>
+                        <label>Room: <input type="range" id="reverb-room" min="0" max="100" value="50"></label>
+                    </div>
+
+                    <div class="effect-section">
+                        <h4>Delay</h4>
+                        <label>
+                            <input type="checkbox" id="delay-toggle"> Enable
+                        </label>
+                        <label>Time: <input type="range" id="delay-time" min="1" max="1000" value="250">ms</label>
+                        <label>Feedback: <input type="range" id="delay-feedback" min="0" max="90" value="30">%</label>
+                    </div>
+
+                    <div class="effect-section">
+                        <h4>EQ</h4>
+                        <label>Low: <input type="range" id="eq-low" min="-20" max="20" value="0">dB</label>
+                        <label>Mid: <input type="range" id="eq-mid" min="-20" max="20" value="0">dB</label>
+                        <label>High: <input type="range" id="eq-high" min="-20" max="20" value="0">dB</label>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Tutorial Modal -->
+        <div id="tutorial-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>DAW Training Tutorials</h2>
+                <div id="tutorial-list" class="tutorial-list">
+                    <div class="tutorial-item" data-tutorial="basics">
+                        <h3>1. DAW Basics</h3>
+                        <p>Learn the fundamentals of digital audio workstations</p>
+                    </div>
+                    <div class="tutorial-item" data-tutorial="tracks">
+                        <h3>2. Working with Tracks</h3>
+                        <p>Add, organize, and manage audio tracks</p>
+                    </div>
+                    <div class="tutorial-item" data-tutorial="recording">
+                        <h3>3. Recording Audio</h3>
+                        <p>Learn how to record and capture audio</p>
+                    </div>
+                    <div class="tutorial-item" data-tutorial="effects">
+                        <h3>4. Effects Processing</h3>
+                        <p>Master reverb, delay, EQ, and compression</p>
+                    </div>
+                    <div class="tutorial-item" data-tutorial="mixing">
+                        <h3>5. Mixing Fundamentals</h3>
+                        <p>Balance levels, panning, and create a polished mix</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tutorial Content Modal -->
+        <div id="tutorial-content-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="tutorial-content">
+                    <!-- Tutorial content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualizer -->
+        <div class="visualizer-container">
+            <canvas id="waveform-canvas"></canvas>
+        </div>
+    </div>
+
+    <script src="/js/audio-engine.js"></script>
+    <script src="/js/effects.js"></script>
+    <script src="/js/tutorials.js"></script>
+    <script src="/js/daw.js"></script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 {
-    "name": "app-service-hello-world",
-    "description": "Simple Hello World Node.js sample for Azure App Service",
-    "version": "0.0.1",
+    "name": "daw-training-studio",
+    "description": "Web-based Digital Audio Workstation (DAW) Training Platform with Web Audio API",
+    "version": "1.0.0",
     "private": true,
     "license": "MIT",
-    "author": "Microsoft",
+    "author": "DAW Training Team",
     "scripts": {
         "start": "node index.js",
         "dev": "nodemon"
@@ -15,5 +15,13 @@
     },
     "devDependencies": {
         "nodemon": "^2.0.19"
-    }
+    },
+    "keywords": [
+        "daw",
+        "audio",
+        "web-audio-api",
+        "music-production",
+        "training",
+        "education"
+    ]
 }
